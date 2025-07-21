@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    color: rgb(63, 63, 63);
+    font-family: 'Rubik', sans-serif;
+}
+
+

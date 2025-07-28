@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsBasketFill } from "react-icons/bs";
 import { FaRegWindowClose } from "react-icons/fa";
 import { TiThMenu } from "react-icons/ti";
+import { ShoppingCartContext } from "../context/ShoppingCartContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  console.log(isMenuOpen);
+ 
+  const {totalQty} =  useContext(ShoppingCartContext);
 
   return (
     <header className="w-full shadow-md sticky top-0 z-50 bg-white ">
+      
       <div className="flex container  mx-auto justify-between items-center py-8 text-xl ">
         <div className="flex items-center gap-5 mr-10 md:mr-0">
           <button className="md:hidden " onClick={() => setIsMenuOpen(true)}>
@@ -21,6 +24,7 @@ export default function Header() {
               isMenuOpen ? "translate-x-0" : "translate-x-full"
             } `}
           >
+            
             <button onClick={() => setIsMenuOpen(false)}>
               <FaRegWindowClose className="text-red-600 text-3xl " />
             </button>
@@ -62,6 +66,7 @@ export default function Header() {
                 تماس با ما
               </Link>
             </li>
+            
 
             <li className="w-full border-b py-5 sm:hidden">
               <Link
@@ -71,16 +76,24 @@ export default function Header() {
               >
                 ورود
               </Link>
+              
             </li>
+            
             <li className="w-full border-b py-5 sm:hidden">
+             
               <Link
                 onClick={() => setIsMenuOpen(false)}
-                className=" flex items-center justify-center w-16 h-10 text-xl text-white     rounded-lg text-center bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
+                className=" relative flex items-center justify-center w-16 h-10 text-xl text-white     rounded-lg text-center bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
                 to={"/cart"}
               >
+                <span className="absolute -top-4 -right-4 bg-amber-400 rounded-full  w-7 h-7 flex justify-center items-center">
+              { totalQty}
+            </span>
                 <BsBasketFill/>
               </Link>
+              
             </li>
+           
           </ul>
 
           <Link to={"/"}>
@@ -109,10 +122,14 @@ export default function Header() {
             ورود
           </Link>
           <Link
-            className="text-xl text-white hidden py-2 px-3 sm:block  rounded-lg text-center bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
+            className="relative text-xl text-white hidden py-2 px-3 sm:block  rounded-lg text-center bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
             to={"/cart"}
           >
+            <span className="absolute -top-4 -right-4 bg-amber-400 rounded-full  w-7 h-7 flex justify-center items-center">
+              { totalQty}
+            </span>
             <BsBasketFill />
+             
           </Link>
         </div>
       </div>

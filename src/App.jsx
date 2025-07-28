@@ -2,13 +2,16 @@ import "./App.css";
 import AppRoutes from "./routes/AppRoutes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
   return (
     <>
-      <Header />
-      <AppRoutes  />
-      <Footer />
+      <ShoppingCartProvider>
+        <Header />
+        <AppRoutes />
+        <Footer />
+      </ShoppingCartProvider>
     </>
   );
 }

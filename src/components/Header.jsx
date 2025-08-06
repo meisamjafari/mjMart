@@ -4,7 +4,7 @@ import { BsBasketFill } from "react-icons/bs";
 import { FaRegWindowClose } from "react-icons/fa";
 import { TiThMenu } from "react-icons/ti";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
-import { IsLoginContex } from "../context/isLoginContex";
+import { IsLoginContex } from "../context/IsLoginContex";
 
 
 

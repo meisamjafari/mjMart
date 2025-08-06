@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { loginUser } from "../services/loginService";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { IsLoginContex } from "../context/isLoginContex";
+import { IsLoginContex } from "../context/IsLoginContex";
 
 export default function Login() {
   const [email, setEmail] = useState("");

@@ -31,12 +31,12 @@ export default function ProductDetail() {
 
   return (
 
-   <div className="container mx-auto my-10">
-     <div className=" flex gap-20 pb-10 border-b-1 border-slate-400">
-      <div className="w-1/4">
+   <div className="container mx-auto my-10 ">
+     <div className="flex gap-20 pb-10 border-b-1 border-slate-400 flex-col items-center  md:flex-row ">
+      <div className=" sm:w-1/2 lg:w-1/3 w-10/12   ">
         <img src={`${product.images}`} alt={`${product.title}`} />
       </div>
-      <div className="w-4/5 flex flex-col items-start gap-20 justify-center ">
+      <div className="w-4/5 flex flex-col items-center md:items-start gap-20 justify-center ">
         <span className="text-3xl">{product.title}</span>
         <span className="text-2xl">قیمت: {product.price}</span>
 

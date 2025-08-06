@@ -69,7 +69,7 @@ export default function Cart() {
             <div className="text-6xl mb-4">🛒</div>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">سبد خرید شما خالی است</h2>
             <p className="text-gray-600 mb-6">محصولات مورد نظر خود را به سبد خرید اضافه کنید</p>
-            <Link to="../Products" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+            <Link to="../products" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
               مشاهده محصولات
             </Link>
           </div>

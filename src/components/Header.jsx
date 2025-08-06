@@ -4,15 +4,23 @@ import { BsBasketFill } from "react-icons/bs";
 import { FaRegWindowClose } from "react-icons/fa";
 import { TiThMenu } from "react-icons/ti";
 import { ShoppingCartContext } from "../context/ShoppingCartContext";
+import { IsLoginContex } from "../context/isLoginContex";
+
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
- 
-  const {totalQty} =  useContext(ShoppingCartContext);
+  const { isLogin, setIsLogin } = useContext(IsLoginContex);
+  const { totalQty } = useContext(ShoppingCartContext);
+  console.log(isLogin);
+  
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLogin(false);
+  };
 
   return (
     <header className="w-full shadow-md sticky top-0 z-50 bg-white ">
-      
       <div className="flex container  mx-auto justify-between items-center py-8 text-xl ">
         <div className="flex items-center gap-5 mr-10 md:mr-0">
           <button className="md:hidden " onClick={() => setIsMenuOpen(true)}>
@@ -24,7 +32,6 @@ export default function Header() {
               isMenuOpen ? "translate-x-0" : "translate-x-full"
             } `}
           >
-            
             <button onClick={() => setIsMenuOpen(false)}>
               <FaRegWindowClose className="text-red-600 text-3xl " />
             </button>
@@ -66,7 +73,6 @@ export default function Header() {
                 تماس با ما
               </Link>
             </li>
-            
 
             <li className="w-full border-b py-5 sm:hidden">
               <Link
@@ -76,24 +82,20 @@ export default function Header() {
               >
                 ورود
               </Link>
-              
             </li>
-            
+
             <li className="w-full border-b py-5 sm:hidden">
-             
               <Link
                 onClick={() => setIsMenuOpen(false)}
                 className=" relative flex items-center justify-center w-16 h-10 text-xl text-white     rounded-lg text-center bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
                 to={"/cart"}
               >
                 <span className="absolute -top-4 -right-4 bg-amber-400 rounded-full  w-7 h-7 flex justify-center items-center">
-              { totalQty}
-            </span>
-                <BsBasketFill/>
+                  {totalQty}
+                </span>
+                <BsBasketFill />
               </Link>
-              
             </li>
-           
           </ul>
 
           <Link to={"/"}>
@@ -115,21 +117,26 @@ export default function Header() {
           </Link>
         </nav>
         <div className="flex  gap-6  lg:gap-10 items-center">
-          <Link
+          {isLogin ? <Link onClick={handleLogout}
             className="py-1 px-2 hidden sm:block text-white rounded-lg text-center   bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
             to={"/login"}
           >
-            ورود
+            خروج از حساب کاربری
+          </Link> : <Link
+            className="py-1 px-2 hidden sm:block text-white rounded-lg text-center   bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
+            to={"/login"}
+          >
+            ورود به حساب کاربری
           </Link>
+          }
           <Link
             className="relative text-xl text-white hidden py-2 px-3 sm:block  rounded-lg text-center bg-red-500 hover:bg-red-100 hover:text-red-500 transition-all"
             to={"/cart"}
           >
             <span className="absolute -top-4 -right-4 bg-amber-400 rounded-full  w-7 h-7 flex justify-center items-center">
-              { totalQty}
+              {totalQty}
             </span>
             <BsBasketFill />
-             
           </Link>
         </div>
       </div>

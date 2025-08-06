@@ -1,12 +1,39 @@
-# React + Vite
+# 🛒 MJ Mart - فروشگاه آنلاین
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+یک فروشگاه آنلاین مدرن و کامل با React و Tailwind CSS
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ تکنولوژی‌ها
 
-## Expanding the ESLint configuration
+- **Frontend:** React 18, Vite
+- **Styling:** Tailwind CSS
+- **State Management:** React Context API
+- **HTTP Client:** Axios
+- **Icons:** React Icons
+- **API:** Escuelajs API(ای پی آی فیک)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+ ساختار پروژه
+
+
+src/
+├── components/          # کامپوننت‌های قابل استفاده مجدد
+├── pages/              # صفحات اصلی
+├── context/            # React Context
+├── services/           # سرویس‌های API
+├── assets/             # فایل‌های استاتیک
+└── routes/             # مسیریابی
+
+
+
+ صفحات
+
+- **صفحه اصلی** - معرفی و محصولات ویژه
+- **محصولات** - لیست کامل محصولات با فیلتر
+- **جزئیات محصول** - اطلاعات کامل محصول
+- **سبد خرید** - مدیریت سفارشات
+- **احراز هویت** - ورود و ثبت‌نام
+- **داشبورد** - پنل کاربری
+

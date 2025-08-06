@@ -53,6 +53,12 @@ export function ShoppingCartProvider({ children }) {
     });
   };
 
+  const removeItem = (id) => {
+    setCartItems((prev) => {
+      return prev.filter((item) => item.id !== id);
+    });
+  };
+
 const totalQty = cartItems.reduce((acc , cur)=>(
  (acc) + (cur.qty)
 ),0)
@@ -61,7 +67,7 @@ const totalQty = cartItems.reduce((acc , cur)=>(
 
   return (
     <ShoppingCartContext.Provider
-      value={{ cartItems, setCartItems, increase, decrese,totalQty }}
+      value={{ cartItems, setCartItems, increase, decrese, removeItem, totalQty }}
     >
       {children}
     </ShoppingCartContext.Provider>

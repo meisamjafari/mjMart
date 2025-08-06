@@ -21,7 +21,7 @@ export default function Cart() {
 
     cartItems.length > 0 ? fetchAll() : setCartItemsDetails([]);
   }, [cartItems]);
-  // console.log(cartItemsDetails);
+
 
   const getQty = (id) => {
     const found = cartItems.find((i) => i.id == id);
@@ -37,7 +37,7 @@ export default function Cart() {
     console.log('Current cartItems:', cartItems);
     setCartItems(prev => {
       console.log('Previous cartItems:', prev);
-      const filtered = prev.filter(item => item.id != id); // از == استفاده می‌کنیم
+      const filtered = prev.filter(item => item.id != id); 
       console.log('Filtered cartItems:', filtered);
       return filtered;
     });
@@ -68,7 +68,7 @@ export default function Cart() {
           <div className="text-center py-20">
             <div className="text-6xl mb-4">🛒</div>
             <h2 className="text-2xl font-bold text-gray-800 mb-2">سبد خرید شما خالی است</h2>
-            <p className="text-gray-600 mb-6">محصولات مورد نظر خود را به سبد خرید اضافه کنید</p>
+            <p className="text-gray-600 mb-6">محصولات مورد نظر خود را به سبد خرید اضافه کنید </p>
             <Link to="../products" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
               مشاهده محصولات
             </Link>
